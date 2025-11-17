@@ -21,36 +21,32 @@ public class Song {
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
+
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
+
     public String getArtista() { return artista; }
     public void setArtista(String artista) { this.artista = artista; }
+
     public String getAlbum() { return album; }
     public void setAlbum(String album) { this.album = album; }
+
     public String getAnoLancamento() { return anoLancamento; }
     public void setAnoLancamento(String anoLancamento) { this.anoLancamento = anoLancamento; }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Song song = (Song) o;
-        return Objects.equals(id, song.id);
-    }
+    public int hashCode() { return Objects.hash(id); }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Song)) return false;
+        Song s = (Song) o;
+        return Objects.equals(id, s.id);
     }
 
     @Override
     public String toString() {
-        return "Song{" +
-                "id=" + id +
-                ", nome='" + nome + ''' +
-                ", artista='" + artista + ''' +
-                ", album='" + album + ''' +
-                ", anoLancamento='" + anoLancamento + ''' +
-                '}';
+        return "Song{id="+id+", nome='"+nome+"', artista='"+artista+"', album='"+album+"', anoLancamento='"+anoLancamento+"'}";
     }
 }
