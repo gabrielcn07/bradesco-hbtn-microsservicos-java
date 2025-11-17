@@ -3,13 +3,15 @@ package com.example.demo;
 import java.util.Objects;
 
 public class Song {
+
     private Integer id;
     private String nome;
     private String artista;
     private String album;
     private String anoLancamento;
 
-    public Song() {}
+    public Song() {
+    }
 
     public Song(Integer id, String nome, String artista, String album, String anoLancamento) {
         this.id = id;
@@ -19,34 +21,67 @@ public class Song {
         this.anoLancamento = anoLancamento;
     }
 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Integer getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public String getArtista() { return artista; }
-    public void setArtista(String artista) { this.artista = artista; }
+    public String getNome() {
+        return nome;
+    }
 
-    public String getAlbum() { return album; }
-    public void setAlbum(String album) { this.album = album; }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public String getAnoLancamento() { return anoLancamento; }
-    public void setAnoLancamento(String anoLancamento) { this.anoLancamento = anoLancamento; }
+    public String getArtista() {
+        return artista;
+    }
+
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
+    public String getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public void setAnoLancamento(String anoLancamento) {
+        this.anoLancamento = anoLancamento;
+    }
 
     @Override
-    public int hashCode() { return Objects.hash(id); }
+    public int hashCode() {
+        return Objects.hash(id, nome, artista, album, anoLancamento);
+    }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Song)) return false;
-        Song s = (Song) o;
-        return Objects.equals(id, s.id);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Song other = (Song) obj;
+        return Objects.equals(id, other.id);
     }
 
     @Override
     public String toString() {
-        return "Song{id="+id+", nome='"+nome+"', artista='"+artista+"', album='"+album+"', anoLancamento='"+anoLancamento+"'}";
+        return "Song{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", artista='" + artista + '\'' +
+                ", album='" + album + '\'' +
+                ", anoLancamento='" + anoLancamento + '\'' +
+                '}';
     }
 }
